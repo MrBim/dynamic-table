@@ -32,7 +32,7 @@ const DynamicTable = ({ data }: Props) => {
         })
       );
     }
-  }, [sortBy]);
+  }, [sortBy, data]);
 
   useEffect(() => {
     setHeadings(Object.keys(data[0]));
