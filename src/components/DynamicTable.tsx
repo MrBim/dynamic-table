@@ -46,8 +46,8 @@ const DynamicTable = ({ data }: Props) => {
         sortInfo={sortBy}
       />
       <tbody>
-        {sortedData.map((it, i) => (
-          <TableRow key={it[headings[0]]} row={it} columnNames={headings} />
+        {sortedData.map((it) => (
+          <TableRow key={Object.values(it).join('')} row={it} columnNames={headings} />
         ))}
       </tbody>
     </table>
