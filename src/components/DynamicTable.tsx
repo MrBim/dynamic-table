@@ -18,7 +18,7 @@ const DynamicTable = ({ data }: Props) => {
     } else {
       console.log("sorting");
       setSortedData(
-        data.sort((a, b) => {
+        [...data.sort((a, b) => {
           if (a[sortBy.sortKey].toString() < b[sortBy.sortKey].toString()) {
             return sortBy.sortDirection === "dsc" ? -1 : 1;
           }
@@ -29,7 +29,7 @@ const DynamicTable = ({ data }: Props) => {
             return sortBy.sortDirection === "dsc" ? 1 : -1;
           }
           return 0;
-        })
+        })]
       );
     }
   }, [sortBy, data]);
