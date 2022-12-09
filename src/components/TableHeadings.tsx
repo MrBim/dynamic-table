@@ -12,22 +12,32 @@ type Props = {
 const TableHeadings = ({ columnNames, setSort, sortInfo }: Props) => {
   const handleTHClick = (selection: string) => {
     setSort({
-      sortKey: selection, 
-      sortDirection: selection !== sortInfo.sortKey
-        ? 'dsc' : sortInfo.sortDirection === 'dsc' 
-        ? 'asc' : 'dsc' 
-    })
+      sortKey: selection,
+      sortDirection:
+        selection !== sortInfo.sortKey
+          ? "dsc"
+          : sortInfo.sortDirection === "dsc"
+          ? "asc"
+          : "dsc",
+    });
   };
   return (
-    <tr>
-      {columnNames.map((it) => (
-        <td key={it} onClick={() => handleTHClick(it)}>{it} <span>
-          {
-          (it === sortInfo.sortKey) ? sortInfo.sortDirection === 'asc' ? 'asc' : 'dsc' : null
-        }
-          </span></td>
-      ))}
-    </tr>
+    <thead>
+      <tr>
+        {columnNames.map((it) => (
+          <td key={it} onClick={() => handleTHClick(it)}>
+            {it}{" "}
+            <span>
+              {it === sortInfo.sortKey
+                ? sortInfo.sortDirection === "asc"
+                  ? "asc"
+                  : "dsc"
+                : null}
+            </span>
+          </td>
+        ))}
+      </tr>
+    </thead>
   );
 };
 

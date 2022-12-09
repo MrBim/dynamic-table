@@ -9,7 +9,7 @@ const TableRow = ({row, columnNames}: Props) => {
   return (
     <tr>
         {columnNames.map((it) => (
-            <td>{row[it]}</td>
+            <td key={`${it}${row[it]}`}>{row[it]}</td>
         ))}
     </tr>
   )
